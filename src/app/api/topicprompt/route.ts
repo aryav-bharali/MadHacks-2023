@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     candidateCount: 1, // optional, how many candidate results to generate
     topK: 40, // optional, number of most probable tokens to consider for generation
     topP: 0.95, // optional, for nucleus sampling decoding strategy
-    maxOutputTokens: 1024, // optional, maximum number of output tokens to generate
+    maxOutputTokens: 200, // optional, maximum number of output tokens to generate
     stopSequences: stopSequences, // optional, sequences at which to stop model generation
     // optional, safety settings
     safetySettings: [
