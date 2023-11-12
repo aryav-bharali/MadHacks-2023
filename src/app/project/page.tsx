@@ -1,7 +1,7 @@
 import styles from './page.module.css'
 import classnames from 'classnames'
-import CheckIcon from '../../components/CheckIcon'
-import WhiteboardIcon from '@/components/WhiteboardIcon'
+import CheckIcon from './CheckIcon'
+import WhiteboardIcon from './WhiteboardIcon'
 
 export default function Page() {
   return (
