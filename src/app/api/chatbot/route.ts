@@ -13,9 +13,9 @@ const stopSequences: string[] = [];
 
 export async function POST(request: Request) {
 
-    const {intro, thesis_prompt} = await request.json(); 
-    const promptString = getPromptString(intro, thesis_prompt)
-
+    const {question, essay} = await request.json(); 
+    const promptString = getPromptString(question, essay)
+    
     const result = await client.generateText({
         model: MODEL_NAME, // required, which model to use to generate the result
         temperature: 0.35, // optional, 0.0 always uses the highest-probability result
@@ -31,21 +31,10 @@ export async function POST(request: Request) {
         },
     })
 
-    const output = JSON.stringify(result[0].candidates![0].output, null, 2);
+    let output = JSON.stringify(result[0].candidates![0].output, null, 2);
+    output = output.replace("\\n\\", "");
 
-    var rating = output.substring(1,7);
-    var feedback = "";
-    var rating_int = 0;
-    if(rating[0] !== "[" || rating[5] !== "]"){
-        rating_int = -1;
-        feedback = output.replace("\\n\\", "");
-        console.log(feedback);
-    }else{
-        rating_int = parseInt(rating[1]);
-        var feedback = (output.substring(11)).replace("\\n\\", "");
-        feedback = feedback.replace("\\n\\", "");
-        console.log(feedback);
-    };
-
-    return Response.json({ rating: rating_int,  feedback: feedback});
+    console.log(output);
+    
+    return Response.json({ output: output});
 }
