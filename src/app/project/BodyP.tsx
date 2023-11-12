@@ -1,15 +1,11 @@
-import WhiteboardIcon from './WhiteboardIcon'
-import { useState } from 'react'
-import ParsedResponse from './ParsedResponse'
-import styles from './Brainstorming.module.css'
 import classNames from 'classnames'
+import { useState } from 'react'
 import BotIcon from './BotIcon'
+import styles from './Brainstorming.module.css'
+import ParsedResponse from './ParsedResponse'
+import QuoteIcon from './QuoteIcon'
 
-interface PropTypes {
-  updateProjectPhoto: (imgURL: string | null) => void
-}
-
-function Brainstorming({ updateProjectPhoto }: PropTypes) {
+function BodyP() {
   const [isLoading, setIsLoading] = useState(false)
   const [topic, setTopic] = useState('')
   const [prompt, setPrompt] = useState('')
@@ -22,7 +18,7 @@ function Brainstorming({ updateProjectPhoto }: PropTypes) {
     fetch('http://localhost:3000/api/topicprompt', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ topic, prompt })
+      body: JSON.stringify({ topic, prompt }),
     })
       .then((res) => res.json())
       .then(({ feedback }) => {
@@ -34,24 +30,13 @@ function Brainstorming({ updateProjectPhoto }: PropTypes) {
         alert('An Error Occurred')
         console.error(err)
       })
-
-    fetch('http://localhost:3000/api/image', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ prompt: `${topic} ${prompt}` })
-    })
-      .then((res) => res.json())
-      .then(({ img_url: imgURL }) => {
-        localStorage.setItem('imgURL', imgURL)
-        updateProjectPhoto(imgURL)
-      })
   }
 
   return (
     <>
       <div className={styles.content}>
-        <WhiteboardIcon height="3rem" />
-        <h1>Brainstorming</h1>
+        <QuoteIcon height="3rem" />
+        <h1>Body Paragraphs</h1>
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni
           cupiditate totam quo magnam corporis ullam facere sapiente, sint
@@ -110,4 +95,4 @@ function Brainstorming({ updateProjectPhoto }: PropTypes) {
   )
 }
 
-export default Brainstorming
+export default BodyP
