@@ -1,13 +1,24 @@
 
+import User from '../../models/User';
 import dbConnect from '../../lib/dbConnect';
-import Post from '../../models/User';
+import handler from '../../lib/handler';
 
-export async function POST(request) {
 
-    await dbConnect();
+handler
+  .post(createUser)
 
-    const user = await User.create(request.body);
-    
-    res.status(201).json({ success: true, data: user });
+async function createUser(req, res) {
+
+  const data = req.body;
+
+  const { email, password } = data;
+
+  dbConnect();
+
+  const user = await User.create(req.body)
+
+  res.status(201).json({ message: 'Created user!' });
 
 }
+
+export default handler;
