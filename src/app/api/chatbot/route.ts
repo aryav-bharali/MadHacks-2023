@@ -32,7 +32,7 @@ export async function POST(request: Request) {
     })
 
     let output = JSON.stringify(result[0].candidates![0].output, null, 2);
-    output = output.replace("\\n\\", "");
+
 
     console.log(output);
     

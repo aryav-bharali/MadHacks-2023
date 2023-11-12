@@ -77,11 +77,11 @@
 .feedback {
   padding: 1rem;
   border-radius: 0.75rem;
-  background-color: #48314f;
-  color: #fff;
+  color: #0c2a4a;
   word-wrap: break-word;
   white-space: pre-wrap;
   word-break: break-word;
+  border: 3px solid #0c2a4a;
 }
 
 .botIcon {
@@ -92,6 +92,14 @@
   margin-left: 1rem;
   position: relative;
   bottom: 30px;
+}
+
+.feedbackNeg {
+  border: 3px solid #b21c1d;
+}
+
+.feedbackPos {
+  border: 3px solid #3d9d54;
 }
 
 @keyframes pulse {

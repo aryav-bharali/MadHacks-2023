@@ -38,12 +38,11 @@ export async function POST(request: Request) {
     var rating_int = 0;
     if(rating[0] !== "[" || rating[5] !== "]"){
         rating_int = -1;
-        feedback = output.replace("\\n\\", "");
+        feedback = output;
         console.log(feedback);
     }else{
         rating_int = parseInt(rating[1]);
-        var feedback = (output.substring(11)).replace("\\n\\", "");
-        feedback = feedback.replace("\\n\\", "");
+        var feedback = (output.substring(11));
         console.log(feedback);
     };
     

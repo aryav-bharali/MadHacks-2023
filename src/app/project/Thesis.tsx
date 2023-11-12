@@ -8,20 +8,22 @@ import BotIcon from './BotIcon'
 function Thesis() {
   const [isLoading, setIsLoading] = useState(false)
   const [thesis, setThesis] = useState('')
+  const [rating, setRating] = useState(-1)
   const [showButton, setShowButton] = useState(true)
   const [feedbackRes, setFeedbackRes] = useState('')
 
   const handleReview = () => {
     setIsLoading(true)
     setFeedbackRes('')
-    fetch('http://localhost:3000/api/topicprompt', {
+    fetch('http://localhost:3000/api/thesisprompt', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ thesis, thesis_prompt: '' })
     })
       .then((res) => res.json())
-      .then(({ feedback }) => {
+      .then(({ feedback, rating }) => {
         setFeedbackRes(feedback)
+        setRating(rating)
         setIsLoading(false)
         setShowButton(false)
       })
@@ -84,9 +86,15 @@ function Thesis() {
           </button>
         ) : null}
         {feedbackRes ? (
-          <div className={styles.feedback}>
+          <div
+            className={
+              rating >= 7
+                ? classNames(styles.feedback, styles.feedbackPos)
+                : classNames(styles.feedback, styles.feedbackNeg)
+            }
+          >
             <div className={styles.botIcon}>
-              <BotIcon height="2rem" />
+              <BotIcon height="2rem" fill="#0c2a4a" />
             </div>
             <ParsedResponse feedback={feedbackRes} />
           </div>

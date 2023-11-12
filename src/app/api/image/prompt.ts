@@ -1,5 +1,2 @@
-export function getPromptString(prompt: string) {
-
-    return `Create an image related to ${prompt}`
-    
-    }
+export const getPromptString = (prompt: string) =>
+  `Create an image related to ${prompt}`
