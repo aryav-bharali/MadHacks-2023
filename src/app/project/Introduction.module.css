@@ -1,0 +1,152 @@
+.content {
+  width: 42%;
+  background-color: #0c2a4a;
+  border-radius: 0.75rem;
+  color: #fff;
+  padding: 1.5rem;
+}
+
+.content h1 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.content p {
+  margin-top: 0.75rem;
+  line-height: 1.5rem;
+}
+
+.fields {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.introductionInput {
+  border-radius: 0.5rem;
+  width: 100%;
+  background: transparent;
+  padding: 10px;
+  border: 3px solid #0c2a4a;
+  background: none;
+  min-height: 20rem;
+}
+
+.reviewButton {
+  width: 100%;
+  padding: 0.5rem;
+  border: 5px solid #0c2a4a;
+  background: transparent;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+  transition: 0.1s box-shadow ease-in-out;
+  transition: 1s height ease-in-out;
+  animation: pulse 2s infinite;
+}
+
+.reviewButton:hover {
+  background-color: #0c2a4a;
+  color: #fff;
+}
+
+.activeReviewButton {
+  transition: 0.1s border-color ease-in-out;
+  cursor: wait;
+  min-height: 200px;
+  height: 100%;
+  animation: flash 2s infinite;
+}
+
+.activeReviewButton:hover {
+  background: none;
+  color: #0c2a4a;
+}
+
+.feedback {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  color: #0c2a4a;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  word-break: break-word;
+  border: 3px solid #0c2a4a;
+}
+
+.botIcon {
+  margin-bottom: 0.5rem;
+}
+
+.feedback li {
+  margin-left: 1rem;
+  position: relative;
+  bottom: 30px;
+}
+
+.feedbackNeg {
+  border: 3px solid #b21c1d;
+}
+
+.feedbackPos {
+  border: 3px solid #3d9d54;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 7px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes flash {
+  0% {
+    border-color: #ffadad;
+  }
+  20% {
+    border-color: #ffd6a5;
+  }
+  40% {
+    border-color: #c9e4de;
+  }
+  60% {
+    border-color: #c6def1;
+  }
+  80% {
+    border-color: #dbcdf0;
+  }
+  100% {
+    border-color: #ffadad;
+  }
+}
+
+@media (max-width: 1024px) {
+  .content {
+    width: 68%;
+  }
+
+  .fields {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    width: 100%;
+    order: 0;
+  }
+
+  .fields {
+    order: 0;
+  }
+}
