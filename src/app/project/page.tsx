@@ -1,9 +1,33 @@
+'use client'
+
 import styles from './page.module.css'
 import classnames from 'classnames'
 import CheckIcon from './CheckIcon'
 import WhiteboardIcon from './WhiteboardIcon'
+import { useState } from 'react'
+import ParsedResponse from './ParsedResponse'
 
 export default function Page() {
+  const [isLoading, setIsLoading] = useState(false)
+  const [topic, setTopic] = useState('')
+  const [prompt, setPrompt] = useState('')
+  const [response, setResponse] = useState('')
+
+  const handleReview = () => {
+    setIsLoading(true)
+    fetch('http://localhost:3000/api/topicprompt', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ topic, prompt }),
+    })
+      .then((res) => res.json())
+      .then(({ feedback }) => {
+        setResponse(feedback)
+        setIsLoading(false)
+      })
+      .catch((err) => console.error(err))
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.sidebar}>
@@ -103,9 +127,28 @@ export default function Page() {
           className={styles.topicTextArea}
           rows={2}
           placeholder="Topic or Piece of Literature:"
+          value={topic}
+          onChange={(e) => setTopic(e.target.value)}
         />
-        <textarea className={styles.promptTextArea} placeholder="Prompt:" />
-        <button className={styles.reviewButton}>REVIEW</button>
+        <textarea
+          className={styles.promptTextArea}
+          placeholder="Prompt:"
+          value={prompt}
+          onChange={(e) => setPrompt(e.target.value)}
+        />
+        <button
+          className={
+            isLoading
+              ? classnames(styles.reviewButton, styles.activeReviewButton)
+              : styles.reviewButton
+          }
+          onClick={handleReview}
+        >
+          {isLoading ? '. . .' : 'REVIEW'}
+        </button>
+        <div>
+          <ParsedResponse feedback={response} />
+        </div>
       </div>
     </div>
   )

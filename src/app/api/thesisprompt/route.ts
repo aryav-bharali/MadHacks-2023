@@ -1,7 +1,7 @@
 
 import { TextServiceClient } from "@google-ai/generativelanguage";
 import { GoogleAuth } from "google-auth-library";
-import { getPromptString } from './prompt.js';
+import { getPromptString } from './prompt';
 
 const MODEL_NAME = "models/text-bison-001";
 

@@ -144,14 +144,26 @@
   border-radius: 0.5rem;
   cursor: pointer;
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
-  transition: 0.1s all ease-in-out;
+  transition: 0.1s box-shadow ease-in-out;
+  transition: 1s height ease-in-out;
   animation: pulse 2s infinite;
-  /* animation: flash 2s infinite; */
 }
 
 .reviewButton:hover {
   background-color: #0c2a4a;
   color: #fff;
+}
+
+.activeReviewButton {
+  transition: 0.1s border-color ease-in-out;
+  cursor: wait;
+  height: 200px;
+  animation: flash 2s infinite;
+}
+
+.activeReviewButton:hover {
+  background: none;
+  color: #0c2a4a;
 }
 
 @keyframes pulse {
@@ -186,5 +198,41 @@
   }
   100% {
     border-color: #ffadad;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    flex-wrap: wrap;
+    gap: 2rem 2%;
+    width: 90%;
+  }
+
+  .sidebar {
+    width: 30%;
+  }
+
+  .content {
+    width: 68%;
+  }
+
+  .fields {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    order: 2;
+  }
+
+  .content {
+    width: 100%;
+    order: 0;
+  }
+
+  .fields {
+    order: 0;
   }
 }
