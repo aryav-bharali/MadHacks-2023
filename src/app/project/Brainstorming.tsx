@@ -26,7 +26,10 @@ function Brainstorming() {
         setIsLoading(false)
         setShowButton(false)
       })
-      .catch((err) => console.error(err))
+      .catch((err) => {
+        alert('An Error Occurred')
+        console.error(err)
+      })
   }
 
   return (
