@@ -1,5 +1,5 @@
 import Replicate from 'replicate';
-import { getPromptString } from './prompt.js';
+import { getPromptString } from './prompt';
 
 export async function POST(request: Request) {
 

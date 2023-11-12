@@ -1,5 +1,6 @@
 export function getPromptString(message: string) {
-    return `Please answer this question as best as you can with a lot of detail.
+    return `Act like a teacher answering this question.
+            Respond in a friendly manner with lots of detail.
             question: ${message}`
   }
   

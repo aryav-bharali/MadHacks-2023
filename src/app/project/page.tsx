@@ -1,15 +1,13 @@
 'use client'
 
-import styles from './page.module.css'
 import classNames from 'classnames'
-import CheckIcon from './CheckIcon'
+import { useEffect, useState } from 'react'
+import BodyP from './BodyP'
 import Brainstorming from './Brainstorming'
-import QuotesAnalysis from './QuotesAnalysis'
-import TopicSentences from './TopicS'
-import Introduction from './Introduction'
+import CheckIcon from './CheckIcon'
 import Conclusion from './Conclusion'
+import Introduction from './Introduction'
 import Title from './Title'
-import ChatbotFrontend from './ChatbotFrontend'
 import { use, useState } from 'react'
 
 const tabs: [string, JSX.Element][] = [
@@ -19,16 +17,48 @@ const tabs: [string, JSX.Element][] = [
   ['Introduction', <Introduction key="Introduction" />],
   ['Conclusion', <Conclusion key="Conclusion" />],
   ['Title', <Title key="Title" />],
-  ['ChatbotFrontend', <ChatbotFrontend key="ChatbotFrontend" />],
 ]
 
 export default function Page() {
   const [currTab, setCurrTab] = useState(0)
+  const [projectPhoto, setProjectPhoto] = useState('')
+
+  const updateProjectPhoto = (imgURL: string | null) => {
+    if (imgURL) setProjectPhoto(imgURL)
+  }
+
+  useEffect(() => {
+    updateProjectPhoto(localStorage.getItem('imgURL'))
+  }, [])
+
+  const tabs: [string, JSX.Element][] = [
+    [
+      'Brainstorming',
+      <Brainstorming
+        key="Brainstorming"
+        updateProjectPhoto={updateProjectPhoto}
+      />
+    ],
+    ['Body Paragraphs', <BodyP key="BodyP" />],
+    ['Topic Sentences', <TopicSentences key="TopicSentences" />],
+    ['Introduction', <Introduction key="Introduction" />],
+    ['Conclusion', <Conclusion key="Conclusion" />],
+    ['Title', <Title key="Title" />]
+  ]
 
   return (
     <div className={styles.container}>
       <div className={styles.sidebar}>
-        <div className={styles.projectPhoto} />
+        <div
+          className={styles.projectPhoto}
+          style={
+            projectPhoto
+              ? {
+                  backgroundImage: `url('${projectPhoto}')`
+                }
+              : {}
+          }
+        />
         <div className={styles.projectName}>Unnamed Project</div>
         <div className={styles.tree}>
           <div className={styles.treeOffset} />
