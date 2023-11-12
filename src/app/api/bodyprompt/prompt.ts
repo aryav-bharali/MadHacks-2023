@@ -8,4 +8,3 @@ export function getPromptString(body: string, thesis: string, prompt: string) {
             thesis: ${thesis}
             prompt: ${prompt}`
 }
-

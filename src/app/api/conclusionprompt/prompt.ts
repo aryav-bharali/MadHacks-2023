@@ -1,4 +1,4 @@
-function getPromptString(conclusion, thesis, prompt) {
+export function getPromptString(conclusion: string, thesis: string, prompt: string) {
 
     return `Act like a teacher reviewing this conclusion paragraph. 
             Does my conclusion give a good summary of the thesis and main points relative to the prompt.
@@ -9,5 +9,4 @@ function getPromptString(conclusion, thesis, prompt) {
             thesis: ${thesis}
             prompt: ${prompt}`
     
-    }
-    module.exports = { getPromptString }
+}
