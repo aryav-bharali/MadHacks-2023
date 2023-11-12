@@ -4,7 +4,7 @@ import { GoogleAuth } from "google-auth-library";
 import { getPromptString } from './prompt.js';
 
 const MODEL_NAME = "models/text-bison-001";
-const API_KEY = process.env.GCP_API_KEY;
+const API_KEY = "AIzaSyAIvEsOknEo5BoUq5H4wUjwGbns4qZEIkk";
 
 const client = new TextServiceClient({
     authClient: new GoogleAuth().fromAPIKey(API_KEY),
