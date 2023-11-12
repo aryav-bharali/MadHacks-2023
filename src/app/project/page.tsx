@@ -8,7 +8,6 @@ import CheckIcon from './CheckIcon'
 import Conclusion from './Conclusion'
 import Introduction from './Introduction'
 import Title from './Title'
-import { use, useState } from 'react'
 
 const tabs: [string, JSX.Element][] = [
   ['Brainstorming', <Brainstorming key="Brainstorming" />],
