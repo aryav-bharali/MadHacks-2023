@@ -9,6 +9,7 @@ function Conclusion() {
   const [isLoading, setIsLoading] = useState(false)
   const [conclusion, setConclusion] = useState('')
   const [showButton, setShowButton] = useState(true)
+  const [rating, setRating] = useState(-1)
   const [feedbackRes, setFeedbackRes] = useState('')
 
   const handleReview = () => {
@@ -20,8 +21,9 @@ function Conclusion() {
       body: JSON.stringify({ conclusion, thesis: '', thesis_prompt: '' })
     })
       .then((res) => res.json())
-      .then(({ feedback }) => {
+      .then(({ feedback, rating }) => {
         setFeedbackRes(feedback)
+        setRating(rating)
         setIsLoading(false)
         setShowButton(false)
       })
@@ -84,9 +86,15 @@ function Conclusion() {
           </button>
         ) : null}
         {feedbackRes ? (
-          <div className={styles.feedback}>
+          <div
+            className={
+              rating >= 7
+                ? classNames(styles.feedback, styles.feedbackPos)
+                : classNames(styles.feedback, styles.feedbackNeg)
+            }
+          >
             <div className={styles.botIcon}>
-              <BotIcon height="2rem" />
+              <BotIcon height="2rem" fill="#0c2a4a" />
             </div>
             <ParsedResponse feedback={feedbackRes} />
           </div>
