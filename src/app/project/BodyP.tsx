@@ -54,26 +54,25 @@ function BodyP() {
         <QuoteIcon height="3rem" />
         <h1>Body Paragraphs</h1>
         <p>
-          Firstly, each body paragraph should start with a topic sentence that
-          clearly relates to your thesis statement. This sentence should
-          introduce the main point of the paragraph and set the tone for the
-          rest of the discussion. Following the topic sentence, provide context
-          for the reader. This could be a brief summary of the part of the text
+          Each body paragraph should start with a topic sentence that clearly
+          relates to your thesis statement. This sentence should introduce the
+          main point of the paragraph and set the tone for the rest of the
+          discussion. Following the topic sentence, provide context for the
+          reader. This could be a brief summary of the part of the text
           you&apos;ll be analyzing or background information on the concept
           you&apos;ll be discussing.
         </p>
         <p>
-          Secondly, when analyzing a quote, it&apos;s crucial to explain its
-          significance rather than merely stating what it says. Start by
-          accurately quoting the text, ensuring you&apos;ve cited it correctly.
-          Then, interpret the quote in your own words, explaining what it means
-          in the context of the work. Delve into how it supports your argument
-          or provides insight into the text. Discuss the literary devices used,
-          the language, and how it aligns with the literary theory you&apos;re
-          applying.
+          When analyzing a quote, it&apos;s crucial to explain its significance
+          rather than merely stating what it says. Start by accurately quoting
+          the text, ensuring you&apos;ve cited it correctly. Then, interpret the
+          quote in your own words, explaining what it means in the context of
+          the work. Delve into how it supports your argument or provides insight
+          into the text. Discuss the literary devices used, the language, and
+          how it aligns with the literary theory you&apos;re applying.
         </p>
         <p>
-          Finally, ensure that your analysis directly supports your thesis. Each
+          Ensure that your analysis directly supports your thesis. Each
           paragraph should contribute to proving your thesis statement. After
           analyzing the quote, explicitly state how your analysis supports your
           argument. This connection should be clear and concise, leaving no

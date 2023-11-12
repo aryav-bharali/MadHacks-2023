@@ -37,28 +37,27 @@ function Thesis() {
         <ScalesIcon height="3rem" />
         <h1>Thesis</h1>
         <p>
-          Firstly, a thesis statement should directly answer the question or
-          prompt given. It&apos;s not a general statement about the topic, but a
+          A thesis statement should directly answer the question or prompt
+          given. It&apos;s not a general statement about the topic, but a
           specific response that sets the direction for your essay. It&apos;s
           your interpretation of the subject, and it should be clear and
           concise. The reader should be able to understand the focus of your
           essay just by reading the thesis statement.
         </p>
         <p>
-          Secondly, a good thesis statement is argumentative. It should present
-          a claim or an assertion that can be debated. It&apos;s not a simple
-          statement of fact, but a position that requires defending. This
-          argumentative nature of the thesis statement makes your essay more
-          engaging and thought-provoking. It invites the reader to consider your
-          perspective and challenges them to think critically about the subject.
+          A good thesis statement is argumentative. It should present a claim or
+          an assertion that can be debated. It&apos;s not a simple statement of
+          fact, but a position that requires defending. This argumentative
+          nature of the thesis statement makes your essay more engaging and
+          thought-provoking. It invites the reader to consider your perspective
+          and challenges them to think critically about the subject.
         </p>
         <p>
-          Finally, your thesis statement should make a strong point. It should
-          be bold and assertive, confidently presenting your interpretation.
-          Avoid vague or weak phrases that could undermine your argument.
-          Instead, use strong, decisive language that conveys your conviction.
-          Remember, your thesis statement is the backbone of your essay, so make
-          it strong!
+          Your thesis statement should make a strong point. It should be bold
+          and assertive, confidently presenting your interpretation. Avoid vague
+          or weak phrases that could undermine your argument. Instead, use
+          strong, decisive language that conveys your conviction. Remember, your
+          thesis statement is the backbone of your essay, so make it strong!
         </p>
       </div>
       <div className={styles.fields}>
