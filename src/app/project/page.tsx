@@ -9,6 +9,7 @@ import TopicSentences from './TopicS'
 import Introduction from './Introduction'
 import Conclusion from './Conclusion'
 import Title from './Title'
+import ChatbotFrontend from './ChatbotFrontend'
 import { use, useState } from 'react'
 
 const tabs: [string, JSX.Element][] = [
@@ -18,6 +19,7 @@ const tabs: [string, JSX.Element][] = [
   ['Introduction', <Introduction key="Introduction" />],
   ['Conclusion', <Conclusion key="Conclusion" />],
   ['Title', <Title key="Title" />],
+  ['ChatbotFrontend', <ChatbotFrontend key="ChatbotFrontend" />],
 ]
 
 export default function Page() {
