@@ -5,14 +5,14 @@ import { getPromptString } from './prompt'
 const MODEL_NAME = 'models/text-bison-001'
 
 const client = new TextServiceClient({
-  authClient: new GoogleAuth().fromAPIKey(process.env.GCP_API_KEY!),
+  authClient: new GoogleAuth().fromAPIKey(process.env.GCP_API_KEY!)
 })
 
 const stopSequences: string[] = []
 
 export async function POST(request: Request) {
-  const { body, thesis, thesis_prompt } = await request.json()
-  const promptString = getPromptString(body, thesis, thesis_prompt)
+  const { bp1, bp2, bp3, thesis, thesis_prompt } = await request.json()
+  const promptString = getPromptString(bp1, bp2, bp3, thesis, thesis_prompt)
 
   const result = await client.generateText({
     model: MODEL_NAME, // required, which model to use to generate the result
@@ -29,11 +29,11 @@ export async function POST(request: Request) {
       { category: 'HARM_CATEGORY_VIOLENCE', threshold: 2 },
       { category: 'HARM_CATEGORY_SEXUAL', threshold: 2 },
       { category: 'HARM_CATEGORY_MEDICAL', threshold: 2 },
-      { category: 'HARM_CATEGORY_DANGEROUS', threshold: 2 },
+      { category: 'HARM_CATEGORY_DANGEROUS', threshold: 2 }
     ],
     prompt: {
-      text: promptString,
-    },
+      text: promptString
+    }
   })
 
   const output = JSON.stringify(result[0].candidates![0].output, null, 2)
@@ -43,12 +43,11 @@ export async function POST(request: Request) {
   var rating_int = 0
   if (rating[0] !== '[' || rating[5] !== ']') {
     rating_int = -1
-    feedback = output.replace('\\n\\', '')
+    feedback = output
     console.log(feedback)
   } else {
     rating_int = parseInt(rating[1])
-    var feedback = output.substring(11).replace('\\n\\', '')
-    feedback = feedback.replace('\\n\\', '')
+    var feedback = output.substring(11)
     console.log(feedback)
   }
 

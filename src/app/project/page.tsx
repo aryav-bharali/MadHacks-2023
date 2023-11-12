@@ -8,15 +8,8 @@ import CheckIcon from './CheckIcon'
 import Conclusion from './Conclusion'
 import Introduction from './Introduction'
 import Title from './Title'
-
-const tabs: [string, JSX.Element][] = [
-  ['Brainstorming', <Brainstorming key="Brainstorming" />],
-  ['Quotes & Analysis', <QuotesAnalysis key="QuotesAnalysis" />],
-  ['Topic Sentences', <TopicSentences key="TopicSentences" />],
-  ['Introduction', <Introduction key="Introduction" />],
-  ['Conclusion', <Conclusion key="Conclusion" />],
-  ['Title', <Title key="Title" />],
-]
+import styles from './page.module.css'
+import Thesis from './Thesis'
 
 export default function Page() {
   const [currTab, setCurrTab] = useState(0)
@@ -38,8 +31,8 @@ export default function Page() {
         updateProjectPhoto={updateProjectPhoto}
       />
     ],
+    ['Thesis', <Thesis key="Thesis" />],
     ['Body Paragraphs', <BodyP key="BodyP" />],
-    ['Topic Sentences', <TopicSentences key="TopicSentences" />],
     ['Introduction', <Introduction key="Introduction" />],
     ['Conclusion', <Conclusion key="Conclusion" />],
     ['Title', <Title key="Title" />]
