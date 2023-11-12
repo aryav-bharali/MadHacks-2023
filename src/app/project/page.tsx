@@ -48,7 +48,10 @@ export default function Page() {
             <Logo height="2rem" fill="#0c2a4a" />
             <h1>WriteBright</h1>
           </div>
-          <div className={styles.navbarRight}>
+          <div
+            className={styles.navbarRight}
+            onClick={() => alert('Account Integration Not Implemented Yet')}
+          >
             <AccountIcon height="2rem" fill="#0c2a4a" />
           </div>
         </div>

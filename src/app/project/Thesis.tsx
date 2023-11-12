@@ -18,7 +18,20 @@ function Thesis() {
     fetch('http://localhost:3000/api/thesisprompt', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ thesis, thesis_prompt: '' })
+      body: JSON.stringify({
+        thesis,
+        thesis_prompt: `Characters do what they do because of their various motivations and
+      desires. Often, their desires conflict with their ethical or moral
+      responsibilities. For example, a personal belief, a love, a thirst for vengeance, a
+      resolve to rectify a wrong, or some other ambition may cause a character to
+      conflict with a moral obligation. Write about a literary work in which a
+      character’s motivations/desire conflict with his/her ethical responsibilities.
+      Remember that you are analyzing the literary text--not commenting on whether
+      or not the behaviors are ethical or “right” in your opinion. Instead, you should
+      focus on the moral dilemma the character experiences and analyze how he/she
+      wrestles with this dilemma beyond what is obvious in the plot. What literary
+      elements draw out this conflict?`
+      })
     })
       .then((res) => res.json())
       .then(({ feedback, rating }) => {
@@ -88,7 +101,7 @@ function Thesis() {
         {feedbackRes ? (
           <div
             className={
-              rating >= 7
+              rating >= 8
                 ? classNames(styles.feedback, styles.feedbackPos)
                 : classNames(styles.feedback, styles.feedbackNeg)
             }

@@ -22,6 +22,10 @@
   font-size: 0.9rem;
 }
 
+.navbarRight {
+  cursor: not-allowed;
+}
+
 .sidebar {
   width: 25%;
 }
